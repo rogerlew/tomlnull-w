@@ -99,6 +99,8 @@ def format_literal(obj: object, ctx: Context, *, nest_level: int = 0) -> str:
         return format_inline_array(obj, ctx, nest_level)
     if isinstance(obj, dict):
         return format_inline_table(obj, ctx)
+    if obj is None:
+        return "null"
     raise TypeError(f"Object of type {type(obj)} is not TOML serializable")
 
 
